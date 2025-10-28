@@ -1,0 +1,117 @@
+/* 
+import java.util.Scanner;
+
+public class Zadanie1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj ciąg znaków: ");
+        String tekst = scanner.nextLine();
+
+        if (tekst.isEmpty()) {
+            System.out.println("Ciąg jest pusty.");
+            return;
+        }
+
+        char ostatniZnak = tekst.charAt(tekst.length() - 1);
+        int licznik = 0;
+
+        for (char c : tekst.toCharArray()) {
+            if (c == ostatniZnak) {
+                licznik++;
+            }
+        }
+
+        System.out.println("Znak '" + ostatniZnak + "' występuje " + licznik + " razy.");
+    }
+
+public class Zadanie2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj ciąg znaków: ");
+        String tekst = scanner.nextLine();
+
+        String odwrocony = new StringBuilder(tekst).reverse().toString();
+        System.out.println("Odwrócony ciąg: " + odwrocony);
+    }
+
+public class Zadanie3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj ciąg znaków: ");
+        String tekst = scanner.nextLine();
+
+        String odwrocony = new StringBuilder(tekst).reverse().toString();
+        if (tekst.equals(odwrocony)) {
+            System.out.println("Ciąg jest palindromem.");
+        } else {
+            System.out.println("Ciąg nie jest palindromem.");
+        }
+    }
+public class Zadanie4 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj tekst: ");
+        String tekst = scanner.nextLine();
+
+        int suma = 0;
+        for (char c : tekst.toCharArray()) {
+            if (Character.isDigit(c)) {
+                suma += Character.getNumericValue(c);
+            }
+        }
+
+        System.out.println("Suma cyfr: " + suma);
+    }
+
+
+public class Zadanie5 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj wyrażenie: ");
+        String wyrazenie = scanner.nextLine();
+
+        int licznik = 0;
+        for (char c : wyrazenie.toCharArray()) {
+            if (c == '(') licznik++;
+            else if (c == ')') licznik--;
+
+            if (licznik < 0) {
+                System.out.println("Błędne sparowanie nawiasów");
+                return;
+            }
+        }
+
+        if (licznik == 0) {
+            System.out.println("OK");
+        } else {
+            System.out.println("Błędne sparowanie nawiasów");
+        }
+    }
+
+public class Zadanie6 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj tekst do zaszyfrowania: ");
+        String tekst = scanner.nextLine();
+        System.out.print("Podaj przesunięcie (n): ");
+        int n = scanner.nextInt();
+
+        StringBuilder zaszyfrowany = new StringBuilder();
+
+        for (char c : tekst.toCharArray()) {
+            if (c == ' ') {
+                zaszyfrowany.append(' ');
+            } else if (c >= 'a' && c <= 'z') {
+                char zaszyfrowanyZnak = (char) ((c - 'a' + n) % 26 + 'a');
+                zaszyfrowany.append(zaszyfrowanyZnak);
+            } else {
+                zaszyfrowany.append(c); // ignoruj inne znaki
+            }
+        }
+
+        System.out.println("Zaszyfrowany tekst: " + zaszyfrowany);
+    }
+
+
+
+}
